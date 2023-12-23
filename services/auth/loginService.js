@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import USER from "../../models/userModel.js";
 
-async function loginUser() {
+async function loginUser(email, password) {
     try {
         const user = await USER.findOne({ where: { email } });
 
@@ -14,8 +14,7 @@ async function loginUser() {
         if (!isPasswordValid) {
             throw new Error('Invalid credentials');
         }
-
-        return user;
+        return user.dataValues;
     } catch (error) {
         console.error('Error during user login:', error);
         throw new Error('Failed to log in');

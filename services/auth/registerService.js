@@ -1,10 +1,9 @@
 import bcrypt from 'bcrypt';
-import USER from "../../models/userModel";
+import USER from "../../models/userModel.js";
 
 async function registerUser(firstName, lastName, email, password, mobileNumber) {
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-
         const user = await USER.create({
             firstName,
             lastName,
@@ -12,11 +11,9 @@ async function registerUser(firstName, lastName, email, password, mobileNumber) 
             password: hashedPassword,
             mobileNumber,
         });
-
-        return user;
+        return user.dataValues
     } catch (error) {
-        console.error('Error during user registration:', error);
-        throw new Error('Failed to register user');
+        throw error
     }
 }
 
