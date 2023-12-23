@@ -70,20 +70,23 @@ npm start
 ## API Endpoints
 
 1. **Register User**
+
     - URL: `api/auth/register`
     - Method: POST
 
--   Request Body:
-    `json
-{
-	"firstName": "singhdharmvir81",
-	"lastName": "singhdharmvir81",
-	"email": "test20@gmail.com",
-	"password": "singhdharmvir81@gmail.com",
-	"mobileNumber": "1234567890"
-}
-`
-    -   Response:
+    - Request Body:
+
+        ```json
+        {
+        	"firstName": "singhdharmvir81",
+        	"lastName": "singhdharmvir81",
+        	"email": "test20@gmail.com",
+        	"password": "singhdharmvir81@gmail.com",
+        	"mobileNumber": "1234567890"
+        }
+        ```
+
+    - Response:
         ```json
         {
         	"user": {
