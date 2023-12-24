@@ -16,8 +16,7 @@ async function loginUser(email, password) {
         }
         return user.dataValues;
     } catch (error) {
-        console.error('Error during user login:', error);
-        throw new Error('Failed to log in');
+        throw error
     }
 
 }

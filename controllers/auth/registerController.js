@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import registerService from "../services/auth/registerService.js";
-import CustomError from "../utils/createError.js";
-import getEnvVariable from "../utils/env.js";
+import registerService from "../../services/auth/registerService.js";
+import CustomError from "../../utils/createError.js";
+import getEnvVariable from "../../utils/env.js";
 async function registrationController(req, res, next) {
     try {
 

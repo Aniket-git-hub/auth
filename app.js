@@ -2,6 +2,7 @@ import express from "express";
 import getEnvVariable from "./utils/env.js";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 import cors from "cors";
 const allowedOrigins = getEnvVariable('ALLOWED_ORIGINS').split(',');
@@ -30,19 +31,23 @@ app.use(
 
 import sequelize from "./config/database.js";
 sequelize.sync({ force: false }).then(() => {
-    console.log('Database synced successfully');
+    console.log('[database] synced successfully');
 }).catch((error) => {
-    console.error('Error syncing database:', error);
+    console.error('[database] Error syncing database:', error);
 });
 
 
 import authRoutes from "./routes/authRoutes.js";
 app.use("/api/auth", authRoutes)
 
+import appointmentRoute from "./routes/appointmentRoute.js";
+app.use("/api/appointment", appointmentRoute)
+
+
 import errorHandler from "./middleware/errorHandler.js";
 app.use(errorHandler)
 
 
-app.listen(3000, () => {
-    console.log("listening on port 3000")
+app.listen(PORT, () => {
+    console.log("[server] listening on port " + PORT + "...");
 })
