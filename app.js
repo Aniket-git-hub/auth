@@ -43,6 +43,7 @@ app.use("/api/auth", authRoutes)
 import appointmentRoute from "./routes/appointmentRoute.js";
 app.use("/api/appointment", appointmentRoute)
 
+app.get("/", (req, res) => res.send("Hello world"))
 
 import errorHandler from "./middleware/errorHandler.js";
 app.use(errorHandler)
