@@ -16,6 +16,7 @@ function errorHandler(error, req, res, next) {
     if (errorType) {
         errorInfo = errorTypeMap[errorType];
     }
+    console.log(error)
     errorInfo = errorInfo || { status: 500, message: 'Internal Server Error' };
     res?.status(errorInfo.status).json({
         message: typeof errorInfo.message === 'function' ? errorInfo.message(error) : errorInfo.message,
