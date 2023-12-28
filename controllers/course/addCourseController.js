@@ -7,6 +7,7 @@ async function addCourseController(req, res, next) {
 
         res.status(201).json({ message: 'Course added successfully', course: addedCourse });
     } catch (error) {
+        console.log(error)
         next(error)
     }
 }

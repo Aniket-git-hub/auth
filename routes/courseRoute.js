@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get("/", getAllCourseController)
 router.post("/add", addCourseController)
-router.put("/update", updateCourseController)
-router.delete("/delete", deleteCourseController)
+router.put("/:id", updateCourseController)
+router.delete("/:id", deleteCourseController)
 
 export default router
