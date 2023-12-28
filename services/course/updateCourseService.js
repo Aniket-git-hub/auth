@@ -1,4 +1,5 @@
 import COURSE from "../../models/courseModel.js";
+import CustomError from "../../utils/createError.js";
 
 async function updateCourseService(courseId, courseDetails) {
     try {
@@ -7,7 +8,7 @@ async function updateCourseService(courseId, courseDetails) {
         });
 
         if (updatedCount === 0) {
-            throw new Error('Course not found');
+            throw new CustomError('AddCourse', 'Course not found');
         }
 
         const updatedCourse = await COURSE.findByPk(courseId);

@@ -1,4 +1,5 @@
 import APPOINTMENT from "../../models/appointmentModel.js";
+import CustomError from "../../utils/createError.js";
 // import isNonBookableDay from "../utils/isNonBookableDay.js";
 // import isOfficeHours from "../utils/isOfficeHours.js";
 // import isWorkingDay from "../utils/isWorkingDays.js";
@@ -15,7 +16,7 @@ async function bookAppointment(fullName, email, mobileNumber, consultationDate) 
         });
 
         if (existingAppointment) {
-            throw new Error('User has a pending or completed appointment. Cannot book a new one.');
+            throw new CustomError("AppointmentBooking", 'User has a pending or completed appointment. Cannot book a new one.');
         }
 
         // // Check if the consultation date is a working day and during office hours
@@ -37,8 +38,7 @@ async function bookAppointment(fullName, email, mobileNumber, consultationDate) 
         });
         return appointment.dataValues;
     } catch (error) {
-        console.error('Error booking appointment:', error);
-        throw new Error('Failed to book appointment');
+        throw error
     }
 }
 

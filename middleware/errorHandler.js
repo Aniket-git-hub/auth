@@ -4,7 +4,9 @@ const errorTypeMap = {
     Validation: { status: 401, message: (error) => error.errors },
     LoginError: { status: 401, message: (error) => error.message },
     SequelizeUniqueConstraintError: { status: 401, message: (error) => error.errors[0].message },
-    SyntaxError: { status: 401, message: (error) => "Invalid Syntax" }
+    SyntaxError: { status: 401, message: (error) => "Invalid Syntax" },
+    AppointmentBooking: { status: 401, message: (error) => error.message },
+    AddCourse: { status: 401, message: (error) => error.message },
 };
 
 

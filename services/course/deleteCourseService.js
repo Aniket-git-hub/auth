@@ -1,4 +1,5 @@
 import COURSE from "../../models/courseModel.js";
+import CustomError from "../../utils/createError.js";
 
 async function deleteCourseService(courseId) {
     try {
@@ -7,7 +8,7 @@ async function deleteCourseService(courseId) {
         });
 
         if (deletedCount === 0) {
-            throw new Error('Course not found');
+            throw new CustomError("AddCourse", 'Course not found');
         }
 
         return { message: 'Course deleted successfully' };

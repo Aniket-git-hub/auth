@@ -3,12 +3,13 @@ import addCourseController from "../controllers/course/addCourseController.js";
 import deleteCourseController from "../controllers/course/deleteCourseController.js";
 import getAllCourseController from "../controllers/course/getAllCourseController.js";
 import updateCourseController from "../controllers/course/updateCourseController.js";
+import { addCourseValidation, deleteCourseValidation, updateCourseValidation } from '../validators/courseValidator.js';
 
 const router = express.Router();
 
 router.get("/", getAllCourseController)
-router.post("/add", addCourseController)
-router.put("/:id", updateCourseController)
-router.delete("/:id", deleteCourseController)
+router.post("/add", addCourseValidation, addCourseController)
+router.put("/:id", updateCourseValidation, updateCourseController)
+router.delete("/:id", deleteCourseValidation, deleteCourseController)
 
 export default router
