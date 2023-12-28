@@ -1,4 +1,4 @@
-import { body } from 'express-validator';
+import { body, query } from 'express-validator';
 
 export const bookAppointmentValidation = [
     body('fullName')
@@ -41,7 +41,37 @@ export const bookAppointmentValidation = [
 
 
 export const updateBookingStatusValidation = [
-    body('appointmentId')
-        .isNumeric().withMessage('Invalid appointment ID')
-        .isInt({ min: 1 }).withMessage('Appointment ID must be a positive integer'),
+    query('status')
 ];
+
+
+export const getAppointmentsValidation = [
+    query('status')
+        .optional()
+        .isIn(['pending', 'completed'])
+        .withMessage('Status must be either "pending" or "completed"'),
+
+    query('fromDate')
+        .optional()
+        .isISO8601()
+        .toDate()
+        .withMessage('Invalid fromDate. It must be a valid ISO8601 date.'),
+
+    query('toDate')
+        .optional()
+        .isISO8601()
+        .toDate()
+        .withMessage('Invalid toDate. It must be a valid ISO8601 date.'),
+
+    (req, res, next) => {
+        const fromDate = req.query.fromDate;
+        const toDate = req.query.toDate;
+
+        if (fromDate && toDate && fromDate >= toDate) {
+            return next('From date must be before the to date');
+        }
+
+        return next();
+    },
+];
+
