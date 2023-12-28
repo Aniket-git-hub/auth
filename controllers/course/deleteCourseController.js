@@ -1,11 +1,14 @@
+import deleteCourseService from "../../services/course/deleteCourseService.js";
 
 async function deleteCourseController(req, res, next) {
     try {
-        const { fullName, email, mobileNumber, consultationDate } = req.body;
+        const courseId = req.params.id;
 
-        res.status(201).json({ message: "New appointment booked." });
+        await deleteCourseService(courseId);
+
+        res.status(200).json({ message: 'Course deleted successfully' });
     } catch (error) {
-        next(error);
+        next(error)
     }
 }
 

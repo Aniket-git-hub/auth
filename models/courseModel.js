@@ -16,6 +16,22 @@ const COURSE = sequelize.define('User', {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
     },
+    startDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    durationMonths: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    lectureSchedule: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    endDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,

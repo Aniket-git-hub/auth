@@ -43,6 +43,9 @@ app.use("/api/auth", authRoutes)
 import appointmentRoute from "./routes/appointmentRoute.js";
 app.use("/api/appointment", appointmentRoute)
 
+import courseRoute from "./routes/courseRoute.js";
+app.use("/api/course", courseRoute)
+
 app.get("/", (req, res) => res.send("Hello world"))
 
 import errorHandler from "./middleware/errorHandler.js";
