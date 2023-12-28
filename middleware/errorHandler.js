@@ -1,6 +1,6 @@
 
 const errorTypeMap = {
-    JsonWebTokenError: { status: 401, message: 'Hmm... The token provided seems to be invalid.' },
+    JsonWebTokenError: { status: 401, message: 'The token provided seems to be invalid.' },
     Validation: { status: 401, message: (error) => error.errors },
     LoginError: { status: 401, message: (error) => error.message },
     SequelizeUniqueConstraintError: { status: 401, message: (error) => error.errors[0].message },
