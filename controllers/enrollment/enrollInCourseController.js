@@ -1,15 +1,20 @@
+import { validationResult } from 'express-validator';
 import createCourseEnrollmentService from '../../services/enrollment/createCourseEnrollmentService.js';
+import CustomError from "../../utils/createError.js";
 
 async function enrollInCourseController(req, res, next) {
     try {
 
-        const { courseId, paymentTransactionId } = req.body;
-        const userId = req.user.id;
+        validationResult(req).throw();
 
+        const { courseId, paymentTransactionId, paymentScreenshotUrl } = req.body;
+        const userId = req.user.userId;
+        console.log(userId);
         const enrollment = await createCourseEnrollmentService(
             courseId,
             userId,
-            paymentTransactionId
+            paymentTransactionId,
+            paymentScreenshotUrl
         );
 
         res.status(201).json({
@@ -18,7 +23,12 @@ async function enrollInCourseController(req, res, next) {
         });
 
     } catch (error) {
-        next(error);
+        if (error.errors && error.errors.length > 0) {
+            let err = new CustomError("Validation")
+            err.errors = error.errors.map(e => e.msg)
+            next(err)
+        }
+        next(error)
     }
 }
 
