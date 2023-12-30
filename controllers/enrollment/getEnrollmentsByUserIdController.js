@@ -1,6 +1,6 @@
 import getEnrollmentsByIdService from "../../services/enrollment/getEnrollmentsByUserIdService.js";
 
-async function getEnrollmentsByIdController(req, res, next) {
+async function getEnrollmentsByUserIdController(req, res, next) {
     try {
         const userId = req.params.userId;
         const enrollments = await getEnrollmentsByIdService(userId);
@@ -12,4 +12,4 @@ async function getEnrollmentsByIdController(req, res, next) {
     }
 }
 
-export default getEnrollmentsByIdController;
+export default getEnrollmentsByUserIdController;
