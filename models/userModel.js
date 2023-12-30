@@ -1,7 +1,5 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
-import COURSE_ENROLLMENT from './courseEnrollmentModel.js';
-import COURSE from './courseModel.js';
 
 const USER = sequelize.define('User', {
     id: {
@@ -59,7 +57,5 @@ const USER = sequelize.define('User', {
     },
 });
 
-USER.belongsToMany(COURSE, { through: COURSE_ENROLLMENT })
-COURSE.belongsToMany(USER, { through: COURSE_ENROLLMENT })
 
 export default USER;

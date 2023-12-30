@@ -42,7 +42,8 @@ const COURSE = sequelize.define('Course', {
         defaultValue: DataTypes.NOW,
         allowNull: false,
     },
-
 });
+
+
 
 export default COURSE;

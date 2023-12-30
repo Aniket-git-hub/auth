@@ -1,15 +1,9 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
+import COURSE from './courseModel.js';
+import USER from './userModel.js';
 
 const COURSE_ENROLLMENT = sequelize.define('Enrollments', {
-    courseId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
     paymentTransactionId: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -32,6 +26,18 @@ const COURSE_ENROLLMENT = sequelize.define('Enrollments', {
         defaultValue: DataTypes.NOW,
         allowNull: false,
     },
+}, {
+    indexes: [
+        {
+            unique: true,
+            fields: ['CourseId', 'UserId'],
+        },
+    ],
 });
+
+COURSE_ENROLLMENT.belongsTo(USER);
+COURSE_ENROLLMENT.belongsTo(COURSE);
+COURSE.hasMany(COURSE_ENROLLMENT)
+COURSE.hasMany(COURSE_ENROLLMENT)
 
 export default COURSE_ENROLLMENT;

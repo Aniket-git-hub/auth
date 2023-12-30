@@ -9,7 +9,7 @@ async function enrollInCourseController(req, res, next) {
 
         const { courseId, paymentTransactionId, paymentScreenshotUrl } = req.body;
         const userId = req.user.userId;
-        console.log(userId);
+
         const enrollment = await createCourseEnrollmentService(
             courseId,
             userId,
