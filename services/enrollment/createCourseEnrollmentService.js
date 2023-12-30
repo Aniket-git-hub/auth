@@ -1,18 +1,26 @@
-import COURSE_ENROLLMENT from "../../models/courseEnrollmentModel.js";
-import CustomError from "../../utils/createError.js";
+import COURSE_ENROLLMENT from '../../models/courseEnrollmentModel.js';
+import CustomError from '../../utils/createError.js';
 
-async function createCourseEnrollmentService(courseId, userId, paymentTransactionId, paymentScreenshotUrl) {
+async function createCourseEnrollmentService(
+    courseId,
+    userId,
+    paymentTransactionId,
+    paymentScreenshotUrl
+) {
     try {
         // Check if there is an existing enrollment for the same user and course
         const existingEnrollment = await COURSE_ENROLLMENT.findOne({
             where: {
                 CourseId: courseId,
-                UserId: userId,
-            },
+                UserId: userId
+            }
         });
 
         if (existingEnrollment) {
-            throw new CustomError("EnrollmentError", 'User is already enrolled in this course.');
+            throw new CustomError(
+                'EnrollmentError',
+                'User is already enrolled in this course.'
+            );
         }
 
         // If no existing enrollment, create a new one
@@ -20,7 +28,7 @@ async function createCourseEnrollmentService(courseId, userId, paymentTransactio
             paymentTransactionId,
             paymentScreenshotUrl,
             CourseId: courseId,
-            UserId: userId,
+            UserId: userId
         });
 
         return enrollment;
@@ -29,4 +37,4 @@ async function createCourseEnrollmentService(courseId, userId, paymentTransactio
     }
 }
 
-export default createCourseEnrollmentService
+export default createCourseEnrollmentService;

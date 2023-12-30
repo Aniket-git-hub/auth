@@ -1,22 +1,30 @@
-import APPOINTMENT from "../../models/appointmentModel.js";
-import CustomError from "../../utils/createError.js";
+import APPOINTMENT from '../../models/appointmentModel.js';
+import CustomError from '../../utils/createError.js';
 // import isNonBookableDay from "../utils/isNonBookableDay.js";
 // import isOfficeHours from "../utils/isOfficeHours.js";
 // import isWorkingDay from "../utils/isWorkingDays.js";
 
-async function bookAppointment(fullName, email, mobileNumber, consultationDate) {
+async function bookAppointment(
+    fullName,
+    email,
+    mobileNumber,
+    consultationDate
+) {
     try {
         // Check if the user has a pending or completed appointment with the same email and mobile number
         const existingAppointment = await APPOINTMENT.findOne({
             where: {
                 email,
                 mobileNumber,
-                status: ['pending'],
-            },
+                status: ['pending']
+            }
         });
 
         if (existingAppointment) {
-            throw new CustomError("AppointmentBooking", 'User has a pending or completed appointment. Cannot book a new one.');
+            throw new CustomError(
+                'AppointmentBooking',
+                'User has a pending or completed appointment. Cannot book a new one.'
+            );
         }
 
         // // Check if the consultation date is a working day and during office hours
@@ -34,11 +42,11 @@ async function bookAppointment(fullName, email, mobileNumber, consultationDate) 
             fullName,
             email,
             mobileNumber,
-            consultationDate,
+            consultationDate
         });
         return appointment.dataValues;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 

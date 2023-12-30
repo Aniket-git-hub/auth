@@ -1,6 +1,6 @@
-import COURSE_ENROLLMENT from "../../models/courseEnrollmentModel.js";
-import COURSE from "../../models/courseModel.js";
-import USER from "../../models/userModel.js";
+import COURSE_ENROLLMENT from '../../models/courseEnrollmentModel.js';
+import COURSE from '../../models/courseModel.js';
+import USER from '../../models/userModel.js';
 
 async function getEnrollmentsByUserIdService(userId) {
     try {
@@ -12,11 +12,11 @@ async function getEnrollmentsByUserIdService(userId) {
 
         const enrollments = await COURSE_ENROLLMENT.findAll({
             where: { UserId: userId },
-            include: [{ model: COURSE }],
+            include: [{ model: COURSE }]
         });
-        return enrollments
+        return enrollments;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 

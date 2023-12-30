@@ -1,4 +1,4 @@
-import getEnrollmentsByIdService from "../../services/enrollment/getEnrollmentsByUserIdService.js";
+import getEnrollmentsByIdService from '../../services/enrollment/getEnrollmentsByUserIdService.js';
 
 async function getEnrollmentsByUserIdController(req, res, next) {
     try {
@@ -8,7 +8,7 @@ async function getEnrollmentsByUserIdController(req, res, next) {
             enrollments
         });
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 

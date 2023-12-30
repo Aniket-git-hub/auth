@@ -5,4 +5,4 @@ function isOfficeHours(date) {
     return hours >= 9 && hours < 17; // Assuming office hours are from 9 AM to 5 PM
 }
 
-export default isOfficeHours
+export default isOfficeHours;

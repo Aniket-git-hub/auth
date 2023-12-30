@@ -3,8 +3,10 @@ import { body, query } from 'express-validator';
 export const bookAppointmentValidation = [
     body('fullName')
         .trim()
-        .notEmpty().withMessage('Full name is required')
-        .isLength({ max: 50 }).withMessage('Full name should not exceed 50 characters')
+        .notEmpty()
+        .withMessage('Full name is required')
+        .isLength({ max: 50 })
+        .withMessage('Full name should not exceed 50 characters')
         .escape(),
 
     body('mobileNumber')
@@ -20,12 +22,14 @@ export const bookAppointmentValidation = [
 
     body('email')
         .trim()
-        .isEmail().withMessage('Invalid email address')
+        .isEmail()
+        .withMessage('Invalid email address')
         .escape(),
 
     //YYYY-MM-DDTHH:mm:ss.sssZ
     body('consultationDate')
-        .isISO8601().withMessage('Invalid appointment date')
+        .isISO8601()
+        .withMessage('Invalid appointment date')
         .custom((value) => {
             // Additional date checks if needed
             const currentDate = new Date();
@@ -36,14 +40,10 @@ export const bookAppointmentValidation = [
         })
         .toDate(),
 
-    body('*').trim().escape(),
+    body('*').trim().escape()
 ];
 
-
-export const updateBookingStatusValidation = [
-    query('status')
-];
-
+export const updateBookingStatusValidation = [query('status')];
 
 export const getAppointmentsValidation = [
     query('status')
@@ -72,6 +72,5 @@ export const getAppointmentsValidation = [
         }
 
         return next();
-    },
+    }
 ];
-

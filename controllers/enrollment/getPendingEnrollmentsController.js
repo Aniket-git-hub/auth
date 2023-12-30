@@ -7,9 +7,8 @@ async function getPendingEnrollmentController(req, res, next) {
         res.status(200).json({
             pendingEnrollments
         });
-
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 

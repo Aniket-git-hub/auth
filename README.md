@@ -78,28 +78,28 @@ npm start
 
         ```json
         {
-        	"firstName": "singhdharmvir81",
-        	"lastName": "singhdharmvir81",
-        	"email": "test20@gmail.com",
-        	"password": "singhdharmvir81@gmail.com",
-        	"mobileNumber": "1234567890"
+            "firstName": "singhdharmvir81",
+            "lastName": "singhdharmvir81",
+            "email": "test20@gmail.com",
+            "password": "singhdharmvir81@gmail.com",
+            "mobileNumber": "1234567890"
         }
         ```
 
     - Response:
         ```json
         {
-        	"user": {
-        		"createdAt": "2023-12-23T11:05:51.469Z",
-        		"updatedAt": "2023-12-23T11:05:51.470Z",
-        		"id": 31,
-        		"firstName": "singhdharmvir81",
-        		"lastName": "singhdharmvir81",
-        		"email": "test20@gmail.com",
-        		"mobileNumber": "1234567890"
-        	},
-        	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJpYXQiOjE3MDMzMjk1NTEsImV4cCI6MTcwMzMzMzE1MX0.qA0vwDwfPcShbW3yEYVmbDgSBnOcAdm1g5FnJeurcuw",
-        	"message": "New user created"
+            "user": {
+                "createdAt": "2023-12-23T11:05:51.469Z",
+                "updatedAt": "2023-12-23T11:05:51.470Z",
+                "id": 31,
+                "firstName": "singhdharmvir81",
+                "lastName": "singhdharmvir81",
+                "email": "test20@gmail.com",
+                "mobileNumber": "1234567890"
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJpYXQiOjE3MDMzMjk1NTEsImV4cCI6MTcwMzMzMzE1MX0.qA0vwDwfPcShbW3yEYVmbDgSBnOcAdm1g5FnJeurcuw",
+            "message": "New user created"
         }
         ```
 
@@ -109,24 +109,24 @@ npm start
     - Request Body:
         ```json
         {
-        	"email": "test9@gmail.com",
-        	"password": "singhdharmvir81@gmail.com"
+            "email": "test9@gmail.com",
+            "password": "singhdharmvir81@gmail.com"
         }
         ```
     - Response:
         ```json
         {
-        	"user": {
-        		"id": 29,
-        		"firstName": "singhdharmvir81",
-        		"lastName": "singhdharmvir81",
-        		"email": "test9@gmail.com",
-        		"mobileNumber": "1234567890",
-        		"createdAt": "2023-12-23T10:59:52.000Z",
-        		"updatedAt": "2023-12-23T10:59:52.000Z"
-        	},
-        	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpYXQiOjE3MDMzMjk1MDcsImV4cCI6MTcwMzMzMzEwN30.FWbo1nzBK0HuT4_KrM8vcAnqgWTrUTNMRcQJ01RYzwI",
-        	"message": "login successful"
+            "user": {
+                "id": 29,
+                "firstName": "singhdharmvir81",
+                "lastName": "singhdharmvir81",
+                "email": "test9@gmail.com",
+                "mobileNumber": "1234567890",
+                "createdAt": "2023-12-23T10:59:52.000Z",
+                "updatedAt": "2023-12-23T10:59:52.000Z"
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI5LCJpYXQiOjE3MDMzMjk1MDcsImV4cCI6MTcwMzMzMzEwN30.FWbo1nzBK0HuT4_KrM8vcAnqgWTrUTNMRcQJ01RYzwI",
+            "message": "login successful"
         }
         ```
 

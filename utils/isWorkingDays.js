@@ -5,4 +5,4 @@ function isWorkingDay(date) {
     return dayOfWeek >= 1 && dayOfWeek <= 5;
 }
 
-export default isWorkingDay
+export default isWorkingDay;

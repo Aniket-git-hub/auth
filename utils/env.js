@@ -7,10 +7,12 @@ function getEnvVariable(variableName) {
     const value = process.env[prefixedVariableName];
 
     if (value === undefined) {
-        throw new Error(`Environment variable ${prefixedVariableName} is not defined.`);
+        throw new Error(
+            `Environment variable ${prefixedVariableName} is not defined.`
+        );
     }
 
     return value;
 }
 
-export default getEnvVariable
+export default getEnvVariable;

@@ -1,6 +1,6 @@
-import { validationResult } from "express-validator";
-import completeAppointment from "../../services/appointment/completeAppointmentService.js";
-import CustomError from "../../utils/createError.js";
+import { validationResult } from 'express-validator';
+import completeAppointment from '../../services/appointment/completeAppointmentService.js';
+import CustomError from '../../utils/createError.js';
 
 async function updateAppointmentController(req, res, next) {
     try {
@@ -9,12 +9,12 @@ async function updateAppointmentController(req, res, next) {
 
         const appointment = await completeAppointment(appointmentId);
 
-        res.status(201).json({ appointment, message: "Appointment Updated" });
+        res.status(201).json({ appointment, message: 'Appointment Updated' });
     } catch (error) {
         if (error.errors && error.errors.length > 0) {
-            let err = new CustomError("Validation")
-            err.errors = error.errors.map(e => e.msg)
-            next(err)
+            let err = new CustomError('Validation');
+            err.errors = error.errors.map((e) => e.msg);
+            next(err);
         }
         next(error);
     }

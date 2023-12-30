@@ -18,4 +18,4 @@ async function completeAppointment(appointmentId) {
     }
 }
 
-export default completeAppointment
+export default completeAppointment;

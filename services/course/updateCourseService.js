@@ -1,10 +1,10 @@
-import COURSE from "../../models/courseModel.js";
-import CustomError from "../../utils/createError.js";
+import COURSE from '../../models/courseModel.js';
+import CustomError from '../../utils/createError.js';
 
 async function updateCourseService(courseId, courseDetails) {
     try {
         const [updatedCount] = await COURSE.update(courseDetails, {
-            where: { id: courseId },
+            where: { id: courseId }
         });
 
         if (updatedCount === 0) {
@@ -14,8 +14,8 @@ async function updateCourseService(courseId, courseDetails) {
         const updatedCourse = await COURSE.findByPk(courseId);
         return updatedCourse;
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
-export default updateCourseService
+export default updateCourseService;

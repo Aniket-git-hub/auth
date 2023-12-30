@@ -13,8 +13,8 @@ async function getFilteredAppointmentService(status, fromDate, toDate) {
         }
         return await APPOINTMENT.findAll({ where });
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
-export default getFilteredAppointmentService
+export default getFilteredAppointmentService;

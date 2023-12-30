@@ -1,5 +1,5 @@
-import COURSE_ENROLLMENT from "../../models/courseEnrollmentModel.js";
-import CustomError from "../../utils/createError.js";
+import COURSE_ENROLLMENT from '../../models/courseEnrollmentModel.js';
+import CustomError from '../../utils/createError.js';
 
 async function updateEnrollmentStatusService(enrollmentId, status) {
     try {
@@ -9,7 +9,7 @@ async function updateEnrollmentStatusService(enrollmentId, status) {
         );
 
         if (updatedCount === 0) {
-            throw new CustomError("EnrollmentError", 'Enrollment not found');
+            throw new CustomError('EnrollmentError', 'Enrollment not found');
         }
 
         return { message: 'Enrollment status updated successfully' };

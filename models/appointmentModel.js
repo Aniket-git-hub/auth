@@ -7,40 +7,40 @@ const APPOINTMENT = sequelize.define('Appointment', {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
+        allowNull: false
     },
     fullName: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     mobileNumber: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     consultationDate: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: false
     },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: false
     },
     updatedAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: false
     },
     // appointment status (e.g., 'completed', 'pending')
     status: {
         type: DataTypes.STRING,
         defaultValue: 'pending',
-        allowNull: false,
-    },
+        allowNull: false
+    }
 });
 
 export default APPOINTMENT;

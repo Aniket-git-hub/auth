@@ -1,4 +1,3 @@
-
 import csv from 'fast-csv';
 
 async function generateCSVString(appointments) {
@@ -26,7 +25,7 @@ async function generateCSVString(appointments) {
                 mobile: appointment.mobileNumber,
                 email: appointment.email,
                 bookOn: appointment.createdAt,
-                status: appointment.status,
+                status: appointment.status
             });
         });
 

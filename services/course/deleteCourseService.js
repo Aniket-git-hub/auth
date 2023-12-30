@@ -1,20 +1,20 @@
-import COURSE from "../../models/courseModel.js";
-import CustomError from "../../utils/createError.js";
+import COURSE from '../../models/courseModel.js';
+import CustomError from '../../utils/createError.js';
 
 async function deleteCourseService(courseId) {
     try {
         const deletedCount = await COURSE.destroy({
-            where: { id: courseId },
+            where: { id: courseId }
         });
 
         if (deletedCount === 0) {
-            throw new CustomError("AddCourse", 'Course not found');
+            throw new CustomError('AddCourse', 'Course not found');
         }
 
         return { message: 'Course deleted successfully' };
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
-export default deleteCourseService
+export default deleteCourseService;

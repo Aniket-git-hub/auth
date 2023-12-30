@@ -1,4 +1,4 @@
-import getAllCourseService from "../../services/course/getAllCourseService.js";
+import getAllCourseService from '../../services/course/getAllCourseService.js';
 
 async function getAllCourseController(req, res, next) {
     try {
@@ -6,7 +6,7 @@ async function getAllCourseController(req, res, next) {
 
         res.status(200).json({ courses });
     } catch (error) {
-        next(error)
+        next(error);
     }
 }
 

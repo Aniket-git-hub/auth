@@ -6,44 +6,42 @@ const COURSE = sequelize.define('Course', {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: false,
+        allowNull: false
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     fee: {
         type: DataTypes.DECIMAL(10, 2),
-        allowNull: false,
+        allowNull: false
     },
     startDate: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: false
     },
     durationMonths: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
     },
     lectureSchedule: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     endDate: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: false
     },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: false
     },
     updatedAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
-    },
+        allowNull: false
+    }
 });
-
-
 
 export default COURSE;
