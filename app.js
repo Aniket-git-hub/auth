@@ -43,7 +43,7 @@ import authRoutes from './routes/authRoutes.js';
 app.use('/api/auth', authRoutes);
 
 import appointmentRoute from './routes/appointmentRoute.js';
-app.use('/api/appointment', appointmentRoute);
+app.use('/appointment', appointmentRoute);
 
 import courseRoute from './routes/courseRoute.js';
 app.use('/api/course', courseRoute);
