@@ -11,7 +11,6 @@ function getEnvVariable(variableName) {
             `Environment variable ${prefixedVariableName} is not defined.`
         );
     }
-
     return value;
 }
 
