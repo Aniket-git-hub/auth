@@ -30,6 +30,15 @@ app.use(
 );
 
 import sequelize from './config/database.js';
+import CATEGORY from './models/categoryModel.js';
+import DOCUMENT from './models/documentModel.js';
+import VIDEO from './models/videoModel.js';
+
+VIDEO.belongsToMany(CATEGORY, { through: 'VideoCategory' })
+CATEGORY.belongsToMany(VIDEO, { through: 'VideoCategory' })
+DOCUMENT.belongsToMany(CATEGORY, { through: 'documentCategory' })
+CATEGORY.belongsToMany(DOCUMENT, { through: 'documentCategory' })
+
 sequelize
     .sync({ force: false })
     .then(() => {
@@ -38,6 +47,9 @@ sequelize
     .catch((error) => {
         console.error('[database] Error syncing database:', error);
     });
+
+
+
 
 import authRoutes from './routes/authRoutes.js';
 app.use('/api/auth', authRoutes);
@@ -50,6 +62,15 @@ app.use('/api/course', courseRoute);
 
 import enrollmentRoute from './routes/enrollmentRoutes.js';
 app.use('/api/enrollment', enrollmentRoute);
+
+import documentRoute from './routes/documentRoute.js';
+app.use('/api/document', documentRoute)
+
+import videoRoute from './routes/videoRoute.js';
+app.use('/api/video', videoRoute)
+
+import categoryRoute from './routes/categoryRoute.js';
+app.use('/api/category', categoryRoute)
 
 app.get('/', (req, res) => res.send('Hello world'));
 

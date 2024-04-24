@@ -1,0 +1,21 @@
+Objectives: 
+BACKEND API ENDPOINTS 
+1. Admin Login
+2. Admin Password Reset
+3. PDF ENDPOINTS 
+	1. Upload
+	2. Read 
+		1. By Id
+		2. All
+	3. Delete By Id
+4. VIDEO ENDPOINTS
+	1. Upload
+	2. Read
+		1. By Id
+		2. All 
+	3. Delete By Id
+5. CATEGORY ENDPOINTS 
+	1. Add 
+	2. Read
+	3. Update By Id
+	4. Delete By Id
