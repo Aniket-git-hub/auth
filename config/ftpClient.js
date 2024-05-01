@@ -1,9 +1,9 @@
 import ftp from 'basic-ftp'
 
 export const settings = {
-    host: "127.0.0.1",
-    user: "root",
-    password: "root",
+    host: "ftp.sfsacademy.in",
+    user: "sfsacademy@sfsacademy.in",
+    password: "shahfaisal1234",
     secure: false
 }
 
